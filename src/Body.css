@@ -1,0 +1,50 @@
+.Body{
+    /*div宽高*/
+    width: 100%;
+    height: 600px;
+}
+
+.Left{
+    /*背景颜色*/
+    background-color: rgb(131, 0, 72);
+    
+    /*div宽高*/
+    width: 20%;
+    height: 600px;
+
+    /*div圆边角*/
+    border-radius: 10px;
+
+    /*浮动*/
+    float: left;
+}
+
+.Center{
+    /*背景颜色*/
+    background-color: rgb(0, 68, 15);
+    
+    /*div宽高*/
+    width: 60%;
+    height: 600px;
+
+    /*div圆边角*/
+    border-radius: 10px;
+
+    /*浮动*/
+    float: left;
+}
+
+.Right{
+    /*背景颜色*/
+    background-color: rgb(134, 79, 1);
+    
+    /*div宽高*/
+    width: 20%;
+    height: 600px;
+
+    /*div圆边角*/
+    border-radius: 10px;
+
+    /*浮动*/
+    float: right;
+}

@@ -1,0 +1,12 @@
+{
+    "king": {
+        "passwd": 123,
+        "gold": 0,
+        "diamond": 0
+    },
+    "user": {
+        "passwd": "321321",
+        "gold": 0,
+        "diamond": 0
+    }
+}
