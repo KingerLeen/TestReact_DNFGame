@@ -1,0 +1,15 @@
+{
+    "user": {
+        "passwd": "ps"
+    },
+    "q": {
+        "passwd": "q",
+        "gold": 0,
+        "diamond": 0
+    },
+    "qd": {
+        "passwd": "q",
+        "gold": 0,
+        "diamond": 0
+    }
+}
