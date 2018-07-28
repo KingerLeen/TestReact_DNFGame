@@ -81,6 +81,56 @@ class All extends React.Component{
         this.zhuanzhi = this.zhuanzhi.bind(this);
         this.maiLv = this.maiLv.bind(this);
         this.zidongzhuangbei = this.zidongzhuangbei.bind(this);
+        this.paixu = this.paixu.bind(this);
+        this.selldiji = this.selldiji.bind(this);
+        this.sellW = this.sellW.bind(this);
+    }
+    paixu(){
+        var user = contrlMan.getUser();
+        user = user.character[this.state.count];
+        user.backpack.sort((x,y)=>contrlMan.jisuan(x)>contrlMan.jisuan(y)?-1:1);
+        this.setState({
+            user:contrlMan.getUser()
+        });
+        this.save();
+    }
+    selldiji(){
+        var user = contrlMan.getUser();
+        user = user.character[this.state.count];
+        var num = user.backpack.length;
+        var n = 0;
+        for(var i=0; i<num; i++){
+            var the = user.backpack[n];
+            if(typeof(the)===typeof("")){
+                if(the[the.length-1]==="箱"&&the[0]==="3"){
+                    contrlMan.sell(this.state.count,n);continue;
+                }else if(the[the.length-1]==="卷"&&the[the.length-2]!=="护"){
+                    the = the.split(" ");
+                    if(the[0]==="7"||the[1]==="黑铁"){
+                        contrlMan.sell(this.state.count,n);continue;
+                    }
+                }
+            }n++;
+        }
+        this.setState({
+            user:contrlMan.getUser()
+        });
+        this.save();
+    }
+    sellW(){
+        var user = contrlMan.getUser();
+        user = user.character[this.state.count];
+        var num = user.backpack.length;
+        var n = 0;
+        for(var i=0; i<num; i++){
+            if(typeof(user.backpack[n])===typeof({})){
+                contrlMan.sell(this.state.count,n);continue;
+            }n++;
+        }
+        this.setState({
+            user:contrlMan.getUser()
+        });
+        this.save();
     }
     zidongzhuangbei(){
         var user = contrlMan.getUser();
@@ -88,9 +138,13 @@ class All extends React.Component{
         var ol = 0;
         var ne = 0;
         var num = user.backpack.length;
+        var kazhu = 0;
         for(var i=0; i<num; i++){
             ol = Number.parseInt(user.power);
-            contrlMan.zhuangbei(this.state.count,0);
+            if(typeof(user.backpack[kazhu])===typeof("")){
+                kazhu++;continue;
+            }
+            contrlMan.zhuangbei(this.state.count,kazhu);
             ne = Number.parseInt(user.power);
             if(ol>ne){
                 contrlMan.zhuangbei(this.state.count,user.backpack.length-1);
@@ -1116,7 +1170,10 @@ class All extends React.Component{
                 <div class="widget-head am-cf">
                     <div class="widget-title am-fl">背包</div>
                     <div class="widget-function am-fr">
+                        <a onClick={this.paixu} href="javascript:;" class="am-icon-cog">按照售价高到低排序</a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a onClick={this.zidongzhuangbei} href="javascript:;" class="am-icon-cog">自动装备</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a onClick={this.selldiji} href="javascript:;" class="am-icon-cog">卖出低级物品(黑铁,+7,30-100调整箱)</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a onClick={this.sellW} href="javascript:;" class="am-icon-cog">只卖出装备</a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a onClick={this.sellAll} href="javascript:;" class="am-icon-cog">卖出全部</a>
                     </div>
                 </div>
