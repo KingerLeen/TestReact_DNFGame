@@ -1035,15 +1035,15 @@ class Man{
             var num = Math.floor(Math.random()*100)+1;
             var str = "";
             if(num>95){
-                str += "13";
+                str = "13";
             }else if(num>90){
-                str += "12";
+                str = "12";
             }else if(num>80){
-                str += "11";
+                str = "11";
             }else if(num>50){
-                str += "10";
+                str = "10";
             }else{
-                str += "7";
+                str = "7";
             }
 
             num = Math.floor(Math.random()*100)+1;
@@ -1554,7 +1554,7 @@ class Man{
             }else if(the[0]=="9"){
                 return 1000000;
             }
-        }else if(the[the.length-1]=="卷"&&the[0]=="+"){
+        }else if(the[the.length-1]=="卷"&&the[the.length-2]!=="护"){
             the = the.split(" ");
             var g = 0;
             if(the[0]=="7"){
@@ -1631,7 +1631,7 @@ class Man{
             }else if(the[0]=="9"){
                 c[where].quality = this.r1(11,90);
             }
-        }else if(the[the.length-1]=="卷"&&the[0]=="+"){
+        }else if(the[the.length-1]=="卷"&&the[the.length-2]!=="护"){
             c.backpack.splice(index,1);
             the = the.split(" ");
             var chengle = false;
