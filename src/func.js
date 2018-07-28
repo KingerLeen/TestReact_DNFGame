@@ -1035,15 +1035,15 @@ class Man{
             var num = Math.floor(Math.random()*100)+1;
             var str = "";
             if(num>95){
-                str += "+13";
+                str += "13";
             }else if(num>90){
-                str += "+12";
+                str += "12";
             }else if(num>80){
-                str += "+11";
+                str += "11";
             }else if(num>50){
-                str += "+10";
+                str += "10";
             }else{
-                str += "+7";
+                str += "7";
             }
 
             num = Math.floor(Math.random()*100)+1;
@@ -1557,15 +1557,15 @@ class Man{
         }else if(the[the.length-1]=="卷"&&the[0]=="+"){
             the = the.split(" ");
             var g = 0;
-            if(the[0]=="+7"){
+            if(the[0]=="7"){
                 g = 1;
-            }else if(the[0]=="+10"){
+            }else if(the[0]=="10"){
                 g = 5;
-            }else if(the[0]=="+11"){
+            }else if(the[0]=="11"){
                 g = 20;
-            }else if(the[0]=="+12"){
+            }else if(the[0]=="12"){
                 g = 100;
-            }else if(the[0]=="+13"){
+            }else if(the[0]=="13"){
                 g = 1000;
             }
             if(the[1]=="黑铁"){
@@ -1653,27 +1653,27 @@ class Man{
                 }
             }
             if(the[2]=="强化卷"&&chengle){
-                if(the[0]=="+7"){
+                if(the[0]=="7"){
                     c[where].qianghua = 7;
-                }else if(the[0]=="+10"){
+                }else if(the[0]=="10"){
                     c[where].qianghua = 10;
-                }else if(the[0]=="+11"){
+                }else if(the[0]=="11"){
                     c[where].qianghua = 11;
-                }else if(the[0]=="+12"){
+                }else if(the[0]=="12"){
                     c[where].qianghua = 12;
-                }else if(the[0]=="+13"){
+                }else if(the[0]=="13"){
                     c[where].qianghua = 13;
                 }
             }else if(the[2]=="增幅卷"&&chengle){
-                if(the[0]=="+7"){
+                if(the[0]=="7"){
                     c[where].zengfu = 7;
-                }else if(the[0]=="+10"){
+                }else if(the[0]=="10"){
                     c[where].zengfu = 10;
-                }else if(the[0]=="+11"){
+                }else if(the[0]=="11"){
                     c[where].zengfu = 11;
-                }else if(the[0]=="+12"){
+                }else if(the[0]=="12"){
                     c[where].zengfu = 12;
-                }else if(the[0]=="+13"){
+                }else if(the[0]=="13"){
                     c[where].zengfu = 13;
                 }
             }
