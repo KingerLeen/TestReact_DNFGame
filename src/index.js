@@ -6,6 +6,8 @@ var contrlMan = new Man();
 var t = 0;
 var zidong = false;
 
+var tanxianCD = 10; //探险的CD，可自行修改，默认10秒
+
 function Z(props){
     return(<div>
     {props.quality?(<div>
@@ -78,6 +80,27 @@ class All extends React.Component{
         
         this.zhuanzhi = this.zhuanzhi.bind(this);
         this.maiLv = this.maiLv.bind(this);
+        this.zidongzhuangbei = this.zidongzhuangbei.bind(this);
+    }
+    zidongzhuangbei(){
+        var user = contrlMan.getUser();
+        user = user.character[this.state.count];
+        var ol = 0;
+        var ne = 0;
+        var num = user.backpack.length;
+        for(var i=0; i<num; i++){
+            ol = Number.parseInt(user.power);
+            contrlMan.zhuangbei(this.state.count,0);
+            ne = Number.parseInt(user.power);
+            if(ol>ne){
+                contrlMan.zhuangbei(this.state.count,user.backpack.length-1);
+            }
+        }
+        
+        this.setState({
+            user:contrlMan.getUser()
+        });
+        this.save();
     }
     maiLv(){
         contrlMan.maiLv(this.state.count);
@@ -602,13 +625,16 @@ class All extends React.Component{
             return 0;
         }
         setTimeout(function(){
-            this.setState({
-                user:contrlMan.getUser()
-            });
-            t = 0;this.save();this.zi();
+            this.zi();
         }.bind(this), t*1000+100);
     }
     zidonglian15(){
+        if(zidong===false){
+            if(t!==0){
+                alert("有任务正在进行，无法操作!");
+                return 0;
+            }
+        }
         zidong = zidong?false:true;
         this.zi();
         this.setState({
@@ -780,31 +806,43 @@ class All extends React.Component{
 
 
     zuanshi(){
+        if(this.state.user.gold<1*500000){
+            return 0;
+        }
         contrlMan.gold2diamond(1);
         this.setState({
             user:contrlMan.getUser()
         });this.save();
     }
     zuanshi2(){
+        if(this.state.user.gold<10*500000){
+            return 0;
+        }
         contrlMan.gold2diamond(10);
         this.setState({
             user:contrlMan.getUser()
         });this.save();
     }
     zuanshi3(){
+        if(this.state.user.gold<100*500000){
+            return 0;
+        }
         contrlMan.gold2diamond(100);
         this.setState({
             user:contrlMan.getUser()
         });this.save();
     }
     zuanshi4(){
+        if(this.state.user.gold<1000*500000){
+            return 0;
+        }
         contrlMan.gold2diamond(1000);
         this.setState({
             user:contrlMan.getUser()
         });this.save();
     }
     qiang(){
-        if(this.state.where==""){
+        if(this.state.where===""){
             alert("请你先选定一件身上的装备");
             return 0;
         }
@@ -821,7 +859,7 @@ class All extends React.Component{
         }this.save();
     }
     zeng(){
-        if(this.state.where==""){
+        if(this.state.where===""){
             alert("请你先选定一件身上的装备");
             return 0;
         }
@@ -839,14 +877,14 @@ class All extends React.Component{
     }
     tanxian(){
         var t = new Date();
-        if(t.getTime()-this.state.time.getTime()>=10000){
+        if(t.getTime()-this.state.time.getTime()>=1000*tanxianCD){
             contrlMan.tanxian(this.state.count);
             this.setState({
                 user:contrlMan.getUser(),
                 time:new Date()
             });this.save();
         }else{
-            alert("冷却中!还剩:"+(10000-t.getTime()+this.state.time.getTime())/1000+"s\n"+
+            alert("冷却中!还剩:"+(1000*tanxianCD-t.getTime()+this.state.time.getTime())/1000+"s\n"+
                 "\n探险\n 获得的奖励取决于你的power(8-88888888888 每10的倍数 概率提升)\n 可能获得：gold diamond Lv exp\n 强化/增幅保护卷\n (+7/+10/+11/+12/+13)(黑铁/黄金/翡翠/钻石)强化/增幅卷\n 装备品级调整箱(30-100/50-100/70-100/90-100)"
             );
         }
@@ -859,7 +897,7 @@ class All extends React.Component{
     setWhere(w){
         this.setState({
             where:w
-        });this.save();
+        });
     }
     sellAll(){
         contrlMan.sellAll(this.state.count);
@@ -908,7 +946,7 @@ class All extends React.Component{
           (result) => {
             console.log(result);
             var info = JSON.parse(result);
-            if(typeof(info.data)==typeof("")){
+            if(typeof(info.data)===typeof("")){
                 contrlMan.setUser({});
                 this.setState({
                     user: {
@@ -953,10 +991,10 @@ class All extends React.Component{
         .catch((error) => console.log(error))
     }
     setS(abj){
-        this.setState(abj);this.save();
+        this.setState(abj);
     }
     getS(){
-        return this.state;this.save();
+        return this.state;
     }
     use(index){
         var olZ = 0;
@@ -968,7 +1006,7 @@ class All extends React.Component{
         }else if(the==="强化保护卷"){
         }else if(the==="增幅保护卷"){
         }else{
-            if(this.state.where==""){
+            if(this.state.where===""){
                 alert("请你先选定一件身上的装备");
                 return 0;
             }
@@ -989,12 +1027,12 @@ class All extends React.Component{
             neQ = this.state.user.character[this.state.count][this.state.where].qianghua!==undefined?this.state.user.character[this.state.count][this.state.where].qianghua:0;
             neZ = this.state.user.character[this.state.count][this.state.where].zengfu!==undefined?this.state.user.character[this.state.count][this.state.where].zengfu:0;
         }
-        
+        this.save();
         if(olQ>neQ){
             alert("成功！！！战斗力增加:"+(neP-olP));
         }else if(olZ>neZ){
             alert("成功！！！战斗力增加:"+(neP-olP));
-        }this.save();
+        }
     }
     delBac(index){
         contrlMan.sell(this.state.count,index);
@@ -1074,6 +1112,7 @@ class All extends React.Component{
                 <div class="widget-head am-cf">
                     <div class="widget-title am-fl">背包</div>
                     <div class="widget-function am-fr">
+                        <a onClick={this.zidongzhuangbei} href="javascript:;" class="am-icon-cog">自动装备</a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a onClick={this.sellAll} href="javascript:;" class="am-icon-cog">卖出全部</a>
                     </div>
                 </div>
@@ -1084,18 +1123,18 @@ class All extends React.Component{
                 {this.state.count!==""?this.state.user.character[this.state.count].backpack.map((w,index)=>
                     <tr class="even gradeC">
                     <td>{typeof(w)===typeof({})?(
-                        w.type=="jacket"?w.name+" 上衣":
-                        w.type=="shoulder"?w.name+" 护肩":
-                        w.type=="breastplate"?w.name+" 胸甲":
-                        w.type=="leg"?w.name+" 护腿":
-                        w.type=="shoes"?w.name+" 鞋":
-                        w.type=="weapon"?w.name+" 武器":
-                        w.type=="necklace"?w.name+" 项链":
-                        w.type=="bracelet"?w.name+" 手镯":
-                        w.type=="ring"?w.name+" 戒指":
-                        w.type=="stone"?w.name+" 魔法石":
-                        w.type=="auxiliary"?w.name+" 辅助装备":
-                        w.type=="earring"?w.name+" 耳环":"未知"):w
+                        w.type==="jacket"?w.name+" 上衣":
+                        w.type==="shoulder"?w.name+" 护肩":
+                        w.type==="breastplate"?w.name+" 胸甲":
+                        w.type==="leg"?w.name+" 护腿":
+                        w.type==="shoes"?w.name+" 鞋":
+                        w.type==="weapon"?w.name+" 武器":
+                        w.type==="necklace"?w.name+" 项链":
+                        w.type==="bracelet"?w.name+" 手镯":
+                        w.type==="ring"?w.name+" 戒指":
+                        w.type==="stone"?w.name+" 魔法石":
+                        w.type==="auxiliary"?w.name+" 辅助装备":
+                        w.type==="earring"?w.name+" 耳环":"未知"):w
                     }</td>
                     <td>{
                         typeof(this.state.user.character[this.state.count].backpack[index])===typeof("")?"无":("战斗力:"+this.state.user.character[this.state.count].backpack[index].power+" __ 速度:"+this.state.user.character[this.state.count].backpack[index].speed+" __ 质量:"+this.state.user.character[this.state.count].backpack[index].quality)
@@ -1122,18 +1161,18 @@ class All extends React.Component{
                         <div class="widget am-cf" >
                             <div class="widget-head am-cf">
                                 <div class="widget-title am-fl">已装备的物品<br />{
-                                this.state.where=="jacket"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 上衣":
-                                this.state.where=="shoulder"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 护肩":
-                                this.state.where=="breastplate"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 胸甲":
-                                this.state.where=="leg"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 护腿":
-                                this.state.where=="shoes"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 鞋":
-                                this.state.where=="weapon"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 武器":
-                                this.state.where=="necklace"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 项链":
-                                this.state.where=="bracelet"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 手镯":
-                                this.state.where=="ring"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 戒指":
-                                this.state.where=="stone"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 魔法石":
-                                this.state.where=="auxiliary"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 辅助装备":
-                                this.state.where=="earring"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 耳环":"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 未指定!"
+                                this.state.where==="jacket"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 上衣":
+                                this.state.where==="shoulder"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 护肩":
+                                this.state.where==="breastplate"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 胸甲":
+                                this.state.where==="leg"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 护腿":
+                                this.state.where==="shoes"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 鞋":
+                                this.state.where==="weapon"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 武器":
+                                this.state.where==="necklace"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 项链":
+                                this.state.where==="bracelet"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 手镯":
+                                this.state.where==="ring"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 戒指":
+                                this.state.where==="stone"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 魔法石":
+                                this.state.where==="auxiliary"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 辅助装备":
+                                this.state.where==="earring"?"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 耳环":"已选定装备(使用 调整箱/强化增幅卷 前请选定物品) - 未指定!"
                             }</div>
                                 <div class="widget-function am-fr">
                                     <a href="javascript:;" class="am-icon-cog"></a>
