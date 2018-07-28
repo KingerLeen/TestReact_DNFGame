@@ -1104,7 +1104,7 @@ class All extends React.Component{
                                     this.state.user.character[this.state.count].jacket.speed+" / 强化:"+
                                     this.state.user.character[this.state.count].jacket.qianghua+" / 增幅:"+
                                     this.state.user.character[this.state.count].jacket.zengfu
-                                    } color="red " /></a>
+                                    } color="red" /></a>
                             <a onClick={()=>this.setWhere("shoulder")}><Z quality={this.state.user.character[this.state.count].shoulder.quality} str={
                                     this.state.user.character[this.state.count].shoulder.name+"护肩 / 战斗力: "+
                                     this.state.user.character[this.state.count].shoulder.power+" / 速度:"+
