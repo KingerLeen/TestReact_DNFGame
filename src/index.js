@@ -1084,24 +1084,24 @@ class All extends React.Component{
                 {this.state.count!==""?this.state.user.character[this.state.count].backpack.map((w,index)=>
                     <tr class="even gradeC">
                     <td>{typeof(w)===typeof({})?(
-                        w.type=="jacket"?w.name+"上衣":
-                        w.type=="shoulder"?w.name+"护肩":
-                        w.type=="breastplate"?w.name+"胸甲":
-                        w.type=="leg"?w.name+"护腿":
-                        w.type=="shoes"?w.name+"鞋":
-                        w.type=="weapon"?w.name+"武器":
-                        w.type=="necklace"?w.name+"项链":
-                        w.type=="bracelet"?w.name+"手镯":
-                        w.type=="ring"?w.name+"戒指":
-                        w.type=="stone"?w.name+"魔法石":
-                        w.type=="auxiliary"?w.name+"辅助装备":
-                        w.type=="earring"?w.name+"耳环":"未知"):w
+                        w.type=="jacket"?w.name+" 上衣":
+                        w.type=="shoulder"?w.name+" 护肩":
+                        w.type=="breastplate"?w.name+" 胸甲":
+                        w.type=="leg"?w.name+" 护腿":
+                        w.type=="shoes"?w.name+" 鞋":
+                        w.type=="weapon"?w.name+" 武器":
+                        w.type=="necklace"?w.name+" 项链":
+                        w.type=="bracelet"?w.name+" 手镯":
+                        w.type=="ring"?w.name+" 戒指":
+                        w.type=="stone"?w.name+" 魔法石":
+                        w.type=="auxiliary"?w.name+" 辅助装备":
+                        w.type=="earring"?w.name+" 耳环":"未知"):w
                     }</td>
                     <td>{
-                        "战斗力:"+this.state.user.character[this.state.count].backpack[index].power+"/速度:"+this.state.user.character[this.state.count].backpack[index].speed+"/质量:"+this.state.user.character[this.state.count].backpack[index].quality
+                        typeof(this.state.user.character[this.state.count].backpack[index])===typeof("")?"无":("战斗力:"+this.state.user.character[this.state.count].backpack[index].power+" __ 速度:"+this.state.user.character[this.state.count].backpack[index].speed+" __ 质量:"+this.state.user.character[this.state.count].backpack[index].quality)
                     }</td>
                     <td>{
-                        contrlMan.jisuan(this.state.user.character[this.state.count].backpack[index])
+                        Number.parseInt(contrlMan.jisuan(this.state.user.character[this.state.count].backpack[index]))
                     }</td>
                     <td>
                         <div class="tpl-table-black-operation">
@@ -1141,87 +1141,87 @@ class All extends React.Component{
                             </div>
                             <div class="widget-body widget-body-md am-fr" style={{height: "1000px"}}>
                             <a onClick={()=>this.setWhere("jacket")}><Z quality={this.state.user.character[this.state.count].jacket.quality} str={
-                                    this.state.user.character[this.state.count].jacket.name+"上衣 / 战斗力: "+
-                                    this.state.user.character[this.state.count].jacket.power+" / 速度:"+
-                                    this.state.user.character[this.state.count].jacket.speed+" / 强化:"+
-                                    this.state.user.character[this.state.count].jacket.qianghua+" / 增幅:"+
+                                    this.state.user.character[this.state.count].jacket.name+" 上衣 __ 战斗力:"+
+                                    this.state.user.character[this.state.count].jacket.power+" __ 速度:"+
+                                    this.state.user.character[this.state.count].jacket.speed+" __ 强化:"+
+                                    this.state.user.character[this.state.count].jacket.qianghua+" __ 增幅:"+
                                     this.state.user.character[this.state.count].jacket.zengfu
                                     } color="red" /></a>
                             <a onClick={()=>this.setWhere("shoulder")}><Z quality={this.state.user.character[this.state.count].shoulder.quality} str={
-                                    this.state.user.character[this.state.count].shoulder.name+"护肩 / 战斗力: "+
-                                    this.state.user.character[this.state.count].shoulder.power+" / 速度:"+
-                                    this.state.user.character[this.state.count].shoulder.speed+" / 强化:"+
-                                    this.state.user.character[this.state.count].shoulder.qianghua+" / 增幅:"+
+                                    this.state.user.character[this.state.count].shoulder.name+" 护肩 __ 战斗力:"+
+                                    this.state.user.character[this.state.count].shoulder.power+" __ 速度:"+
+                                    this.state.user.character[this.state.count].shoulder.speed+" __ 强化:"+
+                                    this.state.user.character[this.state.count].shoulder.qianghua+" __ 增幅:"+
                                     this.state.user.character[this.state.count].shoulder.zengfu
                                     } color="red" /></a>
                             <a onClick={()=>this.setWhere("breastplate")}><Z quality={this.state.user.character[this.state.count].breastplate.quality} str={
-                                    this.state.user.character[this.state.count].breastplate.name+"胸甲 / 战斗力: "+
-                                    this.state.user.character[this.state.count].breastplate.power+" / 速度:"+
-                                    this.state.user.character[this.state.count].breastplate.speed+" / 强化:"+
-                                    this.state.user.character[this.state.count].breastplate.qianghua+" / 增幅:"+
+                                    this.state.user.character[this.state.count].breastplate.name+" 胸甲 __ 战斗力:"+
+                                    this.state.user.character[this.state.count].breastplate.power+" __ 速度:"+
+                                    this.state.user.character[this.state.count].breastplate.speed+" __ 强化:"+
+                                    this.state.user.character[this.state.count].breastplate.qianghua+" __ 增幅:"+
                                     this.state.user.character[this.state.count].breastplate.zengfu
                                     } color="red" /></a>
                             <a onClick={()=>this.setWhere("leg")}><Z quality={this.state.user.character[this.state.count].leg.quality} str={
-                                    this.state.user.character[this.state.count].leg.name+"护腿 / 战斗力: "+
-                                    this.state.user.character[this.state.count].leg.power+" / 速度:"+
-                                    this.state.user.character[this.state.count].leg.speed+" / 强化:"+
-                                    this.state.user.character[this.state.count].leg.qianghua+" / 增幅:"+
+                                    this.state.user.character[this.state.count].leg.name+" 护腿 __ 战斗力:"+
+                                    this.state.user.character[this.state.count].leg.power+" __ 速度:"+
+                                    this.state.user.character[this.state.count].leg.speed+" __ 强化:"+
+                                    this.state.user.character[this.state.count].leg.qianghua+" __ 增幅:"+
                                     this.state.user.character[this.state.count].leg.zengfu
                                     } color="red" /></a>
                             <a onClick={()=>this.setWhere("shoes")}><Z quality={this.state.user.character[this.state.count].shoes.quality} str={
-                                    this.state.user.character[this.state.count].shoes.name+"鞋 / 战斗力: "+
-                                    this.state.user.character[this.state.count].shoes.power+" / 速度:"+
-                                    this.state.user.character[this.state.count].shoes.speed+" / 强化:"+
-                                    this.state.user.character[this.state.count].shoes.qianghua+" / 增幅:"+
+                                    this.state.user.character[this.state.count].shoes.name+" 鞋 __ 战斗力:"+
+                                    this.state.user.character[this.state.count].shoes.power+" __ 速度:"+
+                                    this.state.user.character[this.state.count].shoes.speed+" __ 强化:"+
+                                    this.state.user.character[this.state.count].shoes.qianghua+" __ 增幅:"+
                                     this.state.user.character[this.state.count].shoes.zengfu
                                     } color="red" /></a>
                             <a onClick={()=>this.setWhere("weapon")}><Z quality={this.state.user.character[this.state.count].weapon.quality} str={
-                                    this.state.user.character[this.state.count].weapon.name+"武器 / 战斗力: "+
-                                    this.state.user.character[this.state.count].weapon.power+" / 速度:"+
-                                    this.state.user.character[this.state.count].weapon.speed+" / 强化:"+
-                                    this.state.user.character[this.state.count].weapon.qianghua+" / 增幅:"+
+                                    this.state.user.character[this.state.count].weapon.name+" 武器 __ 战斗力:"+
+                                    this.state.user.character[this.state.count].weapon.power+" __ 速度:"+
+                                    this.state.user.character[this.state.count].weapon.speed+" __ 强化:"+
+                                    this.state.user.character[this.state.count].weapon.qianghua+" __ 增幅:"+
                                     this.state.user.character[this.state.count].weapon.zengfu
                                     } color="danger" /></a>
                             <a onClick={()=>this.setWhere("necklace")}><Z quality={this.state.user.character[this.state.count].necklace.quality} str={
-                                    this.state.user.character[this.state.count].necklace.name+"项链 / 战斗力: "+
-                                    this.state.user.character[this.state.count].necklace.power+" / 速度:"+
-                                    this.state.user.character[this.state.count].necklace.speed+" / 强化:"+
-                                    this.state.user.character[this.state.count].necklace.qianghua+" / 增幅:"+
+                                    this.state.user.character[this.state.count].necklace.name+" 项链 __ 战斗力:"+
+                                    this.state.user.character[this.state.count].necklace.power+" __ 速度:"+
+                                    this.state.user.character[this.state.count].necklace.speed+" __ 强化:"+
+                                    this.state.user.character[this.state.count].necklace.qianghua+" __ 增幅:"+
                                     this.state.user.character[this.state.count].necklace.zengfu
                                     } color="" /></a>
                             <a onClick={()=>this.setWhere("bracelet")}><Z quality={this.state.user.character[this.state.count].bracelet.quality} str={
-                                    this.state.user.character[this.state.count].bracelet.name+"手镯 / 战斗力: "+
-                                    this.state.user.character[this.state.count].bracelet.power+" / 速度:"+
-                                    this.state.user.character[this.state.count].bracelet.speed+" / 强化:"+
-                                    this.state.user.character[this.state.count].bracelet.qianghua+" / 增幅:"+
+                                    this.state.user.character[this.state.count].bracelet.name+" 手镯 __ 战斗力:"+
+                                    this.state.user.character[this.state.count].bracelet.power+" __ 速度:"+
+                                    this.state.user.character[this.state.count].bracelet.speed+" __ 强化:"+
+                                    this.state.user.character[this.state.count].bracelet.qianghua+" __ 增幅:"+
                                     this.state.user.character[this.state.count].bracelet.zengfu
                                     } color="" /></a>
                             <a onClick={()=>this.setWhere("ring")}><Z quality={this.state.user.character[this.state.count].ring.quality} str={
-                                    this.state.user.character[this.state.count].ring.name+"戒指 / 战斗力: "+
-                                    this.state.user.character[this.state.count].ring.power+" / 速度:"+
-                                    this.state.user.character[this.state.count].ring.speed+" / 强化:"+
-                                    this.state.user.character[this.state.count].ring.qianghua+" / 增幅:"+
+                                    this.state.user.character[this.state.count].ring.name+" 戒指 __ 战斗力:"+
+                                    this.state.user.character[this.state.count].ring.power+" __ 速度:"+
+                                    this.state.user.character[this.state.count].ring.speed+" __ 强化:"+
+                                    this.state.user.character[this.state.count].ring.qianghua+" __ 增幅:"+
                                     this.state.user.character[this.state.count].ring.zengfu
                                     } color="" /></a>
                             <a onClick={()=>this.setWhere("stone")}><Z quality={this.state.user.character[this.state.count].stone.quality} str={
-                                    this.state.user.character[this.state.count].stone.name+"魔法石 / 战斗力: "+
-                                    this.state.user.character[this.state.count].stone.power+" / 速度:"+
-                                    this.state.user.character[this.state.count].stone.speed+" / 强化:"+
-                                    this.state.user.character[this.state.count].stone.qianghua+" / 增幅:"+
+                                    this.state.user.character[this.state.count].stone.name+" 魔法石 __ 战斗力:"+
+                                    this.state.user.character[this.state.count].stone.power+" __ 速度:"+
+                                    this.state.user.character[this.state.count].stone.speed+" __ 强化:"+
+                                    this.state.user.character[this.state.count].stone.qianghua+" __ 增幅:"+
                                     this.state.user.character[this.state.count].stone.zengfu
                                     } color="danger" /></a>
                             <a onClick={()=>this.setWhere("auxiliary")}><Z quality={this.state.user.character[this.state.count].auxiliary.quality} str={
-                                    this.state.user.character[this.state.count].auxiliary.name+"辅助装备 / 战斗力: "+
-                                    this.state.user.character[this.state.count].auxiliary.power+" / 速度:"+
-                                    this.state.user.character[this.state.count].auxiliary.speed+" / 强化:"+
-                                    this.state.user.character[this.state.count].auxiliary.qianghua+" / 增幅:"+
+                                    this.state.user.character[this.state.count].auxiliary.name+" 辅助装备 __ 战斗力:"+
+                                    this.state.user.character[this.state.count].auxiliary.power+" __ 速度:"+
+                                    this.state.user.character[this.state.count].auxiliary.speed+" __ 强化:"+
+                                    this.state.user.character[this.state.count].auxiliary.qianghua+" __ 增幅:"+
                                     this.state.user.character[this.state.count].auxiliary.zengfu
                                     } color="danger" /></a>
                             <a onClick={()=>this.setWhere("earring")}><Z quality={this.state.user.character[this.state.count].earring.quality} str={
-                                    this.state.user.character[this.state.count].earring.name+"耳环 / 战斗力: "+
-                                    this.state.user.character[this.state.count].earring.power+" / 速度:"+
-                                    this.state.user.character[this.state.count].earring.speed+" / 强化:"+
-                                    this.state.user.character[this.state.count].earring.qianghua+" / 增幅:"+
+                                    this.state.user.character[this.state.count].earring.name+" 耳环 __ 战斗力:"+
+                                    this.state.user.character[this.state.count].earring.power+" __ 速度:"+
+                                    this.state.user.character[this.state.count].earring.speed+" __ 强化:"+
+                                    this.state.user.character[this.state.count].earring.qianghua+" __ 增幅:"+
                                     this.state.user.character[this.state.count].earring.zengfu
                                     } color="danger" /></a>
                             </div>
