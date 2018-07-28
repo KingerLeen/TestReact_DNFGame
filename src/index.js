@@ -5,6 +5,7 @@ import Man from './func';
 var contrlMan = new Man();
 var t = 0;
 var zidong = false;
+
 function Z(props){
     return(<div>
     {props.quality?(<div>
@@ -31,7 +32,8 @@ class All extends React.Component{
             where: "",
             createMan: false,
             time:new Date(),
-            iszi:false
+            iszi:false,
+            zidongnum: 0
         }
         this.login = this.login.bind(this);
         this.register = this.register.bind(this);
@@ -133,7 +135,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:1
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -163,7 +165,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:2
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -193,7 +195,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:3
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -223,7 +225,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:4
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -253,7 +255,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:5
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -283,7 +285,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:6
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -313,7 +315,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:7
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -343,7 +345,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:8
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -373,7 +375,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:9
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -403,7 +405,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:10
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -433,7 +435,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:11
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -463,7 +465,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:12
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -493,7 +495,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:13
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -523,7 +525,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:14
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -553,7 +555,7 @@ class All extends React.Component{
         alert("本次行动将花费:"+t+"s"+ss);
         setTimeout(function(){
             this.setState({
-                user:contrlMan.getUser()
+                user:contrlMan.getUser(),zidongnum:15
             });
             t = 0;this.save();
         }.bind(this), t*1000+100);
@@ -562,7 +564,39 @@ class All extends React.Component{
         if(!zidong){
             return 0;
         }
-        t = contrlMan.lianji15(this.state.count);
+        if(this.state.zidongnum===1){
+            t = contrlMan.lianji1(this.state.count);
+        }else if(this.state.zidongnum===2){
+            t = contrlMan.lianji2(this.state.count);
+        }else if(this.state.zidongnum===3){
+            t = contrlMan.lianji3(this.state.count);
+        }else if(this.state.zidongnum===4){
+            t = contrlMan.lianji4(this.state.count);
+        }else if(this.state.zidongnum===5){
+            t = contrlMan.lianji5(this.state.count);
+        }else if(this.state.zidongnum===6){
+            t = contrlMan.lianji6(this.state.count);
+        }else if(this.state.zidongnum===7){
+            t = contrlMan.lianji7(this.state.count);
+        }else if(this.state.zidongnum===8){
+            t = contrlMan.lianji8(this.state.count);
+        }else if(this.state.zidongnum===9){
+            t = contrlMan.lianji9(this.state.count);
+        }else if(this.state.zidongnum===10){
+            t = contrlMan.lianji10(this.state.count);
+        }else if(this.state.zidongnum===11){
+            t = contrlMan.lianji11(this.state.count);
+        }else if(this.state.zidongnum===12){
+            t = contrlMan.lianji12(this.state.count);
+        }else if(this.state.zidongnum===13){
+            t = contrlMan.lianji13(this.state.count);
+        }else if(this.state.zidongnum===14){
+            t = contrlMan.lianji14(this.state.count);
+        }else if(this.state.zidongnum===15){
+            t = contrlMan.lianji15(this.state.count);
+        }else{
+            return 0;
+        }
         if(t===0){
             zidong=false;
             return 0;
@@ -1025,7 +1059,7 @@ class All extends React.Component{
         <input class="page-header-button" type="button" value="练级13" onClick = {this.lian13}/>
         <input class="page-header-button" type="button" value="练级14" onClick = {this.lian14}/>
         <input class="page-header-button" type="button" value="练级15" onClick = {this.lian15}/>
-        <input class="page-header-button" type="button" value={this.state.iszi?"自动练级15(开)":"自动练级15(关)"} onClick = {this.zidonglian15}/>
+        <input class="page-header-button" type="button" value={this.state.iszi?"自动练级"+this.state.zidongnum+"(开)":"自动练级"+this.state.zidongnum+"(关)"} onClick = {this.zidonglian15}/>
         
         <input class="page-header-button" type="button" value="深渊1" onClick = {this.shenyuan1}/>
         <input class="page-header-button" type="button" value="深渊2" onClick = {this.shenyuan2}/>
