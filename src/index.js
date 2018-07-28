@@ -625,6 +625,10 @@ class All extends React.Component{
             return 0;
         }
         setTimeout(function(){
+            this.setState({
+                user:contrlMan.getUser()
+            });
+            t = 0;this.save();
             this.zi();
         }.bind(this), t*1000+100);
     }
