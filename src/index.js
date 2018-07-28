@@ -1009,7 +1009,7 @@ class All extends React.Component{
         <input class="page-header-button" type="button" value="探险" onClick = {this.tanxian}/>
         <input class="page-header-button" type="button" value="转职" onClick = {this.zhuanzhi}/>
         <input class="page-header-button" type="button" value="买等级-1钻石1级" onClick = {this.maiLv}/>
-        <hr />
+        
         <input class="page-header-button" type="button" value="练级1" onClick = {this.lian1}/>
         <input class="page-header-button" type="button" value="练级2" onClick = {this.lian2}/>
         <input class="page-header-button" type="button" value="练级3" onClick = {this.lian3}/>
@@ -1026,7 +1026,7 @@ class All extends React.Component{
         <input class="page-header-button" type="button" value="练级14" onClick = {this.lian14}/>
         <input class="page-header-button" type="button" value="练级15" onClick = {this.lian15}/>
         <input class="page-header-button" type="button" value={this.state.iszi?"自动练级15(开)":"自动练级15(关)"} onClick = {this.zidonglian15}/>
-        <hr />
+        
         <input class="page-header-button" type="button" value="深渊1" onClick = {this.shenyuan1}/>
         <input class="page-header-button" type="button" value="深渊2" onClick = {this.shenyuan2}/>
         <input class="page-header-button" type="button" value="深渊3" onClick = {this.shenyuan3}/>
