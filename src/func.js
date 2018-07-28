@@ -1947,6 +1947,14 @@ class Man{
         this.calculatePower(count);this.calculateSpeed(count);
     }
 
+    maiLv(count){
+        var c = this.user.character[count];
+        if(this.user.diamond>=1){
+            this.user.diamond -= 1;
+            c.Lv += 1;
+            this.calculatePower(count);this.calculateSpeed(count);
+        }
+    }
 }
 
 export default Man;
