@@ -967,8 +967,8 @@ class All extends React.Component{
             <div class="row" >
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
                     <div class="page-header-heading">用户:&nbsp;&nbsp;{this.state.user.user}</div>&nbsp;&nbsp;&nbsp;
-                    <span class="page-header-description">金币：&nbsp;&nbsp;&nbsp;{this.state.user.gold}</span>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span class="page-header-description">钻石：&nbsp;&nbsp;&nbsp;{this.state.user.diamond}</span><hr />
+                    <span class="page-header-description">金币：&nbsp;&nbsp;&nbsp;{Number.parseInt(this.state.user.gold)}</span>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="page-header-description">钻石：&nbsp;&nbsp;&nbsp;{Number.parseInt(this.state.user.diamond)}</span><hr />
                     <span class="page-header-description">当前角色：&nbsp;&nbsp;&nbsp;{this.state.count===""?"请登录":this.state.user.character[this.state.count].name}</span><br />&nbsp;&nbsp;&nbsp;&nbsp;
                     <span class="page-header-description">Lv：&nbsp;&nbsp;&nbsp;{this.state.count===""?"请登录":this.state.user.character[this.state.count].Lv}</span>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
                     <span class="page-header-description">经验：&nbsp;&nbsp;&nbsp;{this.state.count===""?"请登录":this.state.user.character[this.state.count].exp.toFixed(2)}</span>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
