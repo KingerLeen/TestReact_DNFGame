@@ -311,7 +311,7 @@ class Man{
     
     createMan(man) {
         var str = "";
-        if(man == 0){
+        if(man === 0){
             str = "白手";
         }
         var c = {
@@ -365,18 +365,18 @@ class Man{
         p += fix("leg");p += fix("shoes");p += fix("weapon");
         p += fix("necklace");p += fix("bracelet");p += fix("ring");
         p += fix("stone");p += fix("auxiliary");p += fix("earring");
-        if(find("jacket")!==undefined&&find("jacket")==find("shoulder")&&
-            find("breastplate")==find("shoulder")&&
-            find("breastplate")==find("leg")&&
-            find("shoes")==find("leg")){
+        if(find("jacket")!==undefined&&find("jacket")===find("shoulder")&&
+            find("breastplate")===find("shoulder")&&
+            find("breastplate")===find("leg")&&
+            find("shoes")===find("leg")){
             p *= 1.5;
         }
-        if(find("necklace")!==undefined&&find("necklace")==find("bracelet")&&
-            find("bracelet")==find("ring")){
+        if(find("necklace")!==undefined&&find("necklace")===find("bracelet")&&
+            find("bracelet")===find("ring")){
             p *= 2;
         }
-        if(find("stone")!==undefined&&find("stone")==find("auxiliary")&&
-            find("auxiliary")==find("earring")){
+        if(find("stone")!==undefined&&find("stone")===find("auxiliary")&&
+            find("auxiliary")===find("earring")){
             p *= 3;
         }
         c.power = p;
@@ -405,18 +405,18 @@ class Man{
         p += fix("leg");p += fix("shoes");p += fix("weapon");
         p += fix("necklace");p += fix("bracelet");p += fix("ring");
         p += fix("stone");p += fix("auxiliary");p += fix("earring");
-        if(find("jacket")!==undefined&&find("jacket")==find("shoulder")&&
-            find("breastplate")==find("shoulder")&&
-            find("breastplate")==find("leg")&&
-            find("shoes")==find("leg")){
+        if(find("jacket")!==undefined&&find("jacket")===find("shoulder")&&
+            find("breastplate")===find("shoulder")&&
+            find("breastplate")===find("leg")&&
+            find("shoes")===find("leg")){
             p *= 1.5;
         }
-        if(find("necklace")!==undefined&&find("necklace")==find("bracelet")&&
-            find("bracelet")==find("ring")){
+        if(find("necklace")!==undefined&&find("necklace")===find("bracelet")&&
+            find("bracelet")===find("ring")){
             p *= 2;
         }
-        if(find("stone")!==undefined&&find("stone")==find("auxiliary")&&
-            find("auxiliary")==find("earring")){
+        if(find("stone")!==undefined&&find("stone")===find("auxiliary")&&
+            find("auxiliary")===find("earring")){
             p *= 3;
         }
         c.speed = p;
@@ -524,29 +524,29 @@ class Man{
                 }
             }
             var c = this.r1(12,1);
-            if(c==1){
+            if(c===1){
                 the.type = "jacket";
-            }else if(c==2){
+            }else if(c===2){
                 the.type = "shoulder";
-            }else if(c==3){
+            }else if(c===3){
                 the.type = "breastplate";
-            }else if(c==4){
+            }else if(c===4){
                 the.type = "leg";
-            }else if(c==5){
+            }else if(c===5){
                 the.type = "shoes";
-            }else if(c==6){
+            }else if(c===6){
                 the.type = "weapon";
-            }else if(c==7){
+            }else if(c===7){
                 the.type = "necklace";
-            }else if(c==8){
+            }else if(c===8){
                 the.type = "bracelet";
-            }else if(c==9){
+            }else if(c===9){
                 the.type = "ring";
-            }else if(c==10){
+            }else if(c===10){
                 the.type = "stone";
-            }else if(c==11){
+            }else if(c===11){
                 the.type = "auxiliary";
-            }else if(c==12){
+            }else if(c===12){
                 the.type = "earring";
             }
             return the;
@@ -563,9 +563,9 @@ class Man{
      * 收益 exp:*-* gold:*-* 装备:list随机*%
      */
     lianji(lv,power,speed,maxPower,maxSpeed,time,exp1,exp2,gold1,gold2,list,random,count,x=1){
-        lv = lv==0?-9999999:lv;
-        power = power==0?-9999999:power;
-        speed = speed==0?-9999999:speed;
+        lv = lv===0?-9999999:lv;
+        power = power===0?-9999999:power;
+        speed = speed===0?-9999999:speed;
         if(this.user.character[count].Lv < lv){
             return 0;
         }
@@ -588,7 +588,7 @@ class Man{
             if(w.name!==undefined){
                 c.backpack.push(w);
             }
-            if(x==2){
+            if(x===2){
                 var w2 = this.r2(list,random);
                 if(w2.name!==undefined){
                     c.backpack.push(w2);
@@ -860,9 +860,9 @@ class Man{
             return 0;
         }
         this.user.diamond -= diamond;
-        lv = lv==0?-9999999:lv;
-        power = power==0?-9999999:power;
-        speed = speed==0?-9999999:speed;
+        lv = lv===0?-9999999:lv;
+        power = power===0?-9999999:power;
+        speed = speed===0?-9999999:speed;
         if(this.user.character[count].Lv < lv){
             return 0;
         }
@@ -1536,50 +1536,50 @@ class Man{
      * 计算价格
      */
     jisuan(the){
-        if(typeof(the)==typeof({})){
+        if(typeof(the)===typeof({})){
             return the.sell*(the.quality/100);
-        }else if(the[the.length-1]=="卷"&&the[the.length-2]=="护"){
-            if(the[0]=="强"){
+        }else if(the[the.length-1]==="卷"&&the[the.length-2]==="护"){
+            if(the[0]==="强"){
                 return 1000000;
-            }else if(the[0]=="增"){
+            }else if(the[0]==="增"){
                 return 5000000;
             }
-        }else if(the[the.length-1]=="箱"){
-            if(the[0]=="3"){
+        }else if(the[the.length-1]==="箱"){
+            if(the[0]==="3"){
                 return 10000;
-            }else if(the[0]=="5"){
+            }else if(the[0]==="5"){
                 return 100000;
-            }else if(the[0]=="7"){
+            }else if(the[0]==="7"){
                 return 500000;
-            }else if(the[0]=="9"){
+            }else if(the[0]==="9"){
                 return 1000000;
             }
-        }else if(the[the.length-1]=="卷"&&the[the.length-2]!=="护"){
+        }else if(the[the.length-1]==="卷"&&the[the.length-2]!=="护"){
             the = the.split(" ");
             var g = 0;
-            if(the[0]=="7"){
+            if(the[0]==="7"){
                 g = 1;
-            }else if(the[0]=="10"){
+            }else if(the[0]==="10"){
                 g = 5;
-            }else if(the[0]=="11"){
+            }else if(the[0]==="11"){
                 g = 20;
-            }else if(the[0]=="12"){
+            }else if(the[0]==="12"){
                 g = 100;
-            }else if(the[0]=="13"){
+            }else if(the[0]==="13"){
                 g = 1000;
             }
-            if(the[1]=="黑铁"){
+            if(the[1]==="黑铁"){
                 g *= 100;
-            }else if(the[1]=="黄金"){
+            }else if(the[1]==="黄金"){
                 g *= 500;
-            }else if(the[1]=="翡翠"){
+            }else if(the[1]==="翡翠"){
                 g *= 1000;
-            }else if(the[1]=="钻石"){
+            }else if(the[1]==="钻石"){
                 g *= 5000;
             }
-            if(the[2]=="强化卷"){
+            if(the[2]==="强化卷"){
                 g *= 100;
-            }else if(the[2]=="增幅卷"){
+            }else if(the[2]==="增幅卷"){
                 g *= 500;
             }
             return g;
@@ -1620,60 +1620,60 @@ class Man{
     useXZ(count,index,where){
         var c = this.user.character[count];
         var the = c.backpack[index];
-        if(the[the.length-1]=="箱"){
+        if(the[the.length-1]==="箱"){
             c.backpack.splice(index,1);
-            if(the[0]=="3"){
+            if(the[0]==="3"){
                 c[where].quality = this.r1(71,30);
-            }else if(the[0]=="5"){
+            }else if(the[0]==="5"){
                 c[where].quality = this.r1(51,50);
-            }else if(the[0]=="7"){
+            }else if(the[0]==="7"){
                 c[where].quality = this.r1(31,70);
-            }else if(the[0]=="9"){
+            }else if(the[0]==="9"){
                 c[where].quality = this.r1(11,90);
             }
-        }else if(the[the.length-1]=="卷"&&the[the.length-2]!=="护"){
+        }else if(the[the.length-1]==="卷"&&the[the.length-2]!=="护"){
             c.backpack.splice(index,1);
             the = the.split(" ");
             var chengle = false;
-            if(the[1]=="黑铁"){
+            if(the[1]==="黑铁"){
                 if(this.r1(100,1)>99){
                     chengle = true;
                 }
-            }else if(the[1]=="黄金"){
+            }else if(the[1]==="黄金"){
                 if(this.r1(100,1)>70){
                     chengle = true;
                 }
-            }else if(the[1]=="翡翠"){
+            }else if(the[1]==="翡翠"){
                 if(this.r1(100,1)>30){
                     chengle = true;
                 }
-            }else if(the[1]=="钻石"){
+            }else if(the[1]==="钻石"){
                 if(this.r1(100,1)>10){
                     chengle = true;
                 }
             }
-            if(the[2]=="强化卷"&&chengle){
-                if(the[0]=="7"){
+            if(the[2]==="强化卷"&&chengle){
+                if(the[0]==="7"){
                     c[where].qianghua = 7;
-                }else if(the[0]=="10"){
+                }else if(the[0]==="10"){
                     c[where].qianghua = 10;
-                }else if(the[0]=="11"){
+                }else if(the[0]==="11"){
                     c[where].qianghua = 11;
-                }else if(the[0]=="12"){
+                }else if(the[0]==="12"){
                     c[where].qianghua = 12;
-                }else if(the[0]=="13"){
+                }else if(the[0]==="13"){
                     c[where].qianghua = 13;
                 }
-            }else if(the[2]=="增幅卷"&&chengle){
-                if(the[0]=="7"){
+            }else if(the[2]==="增幅卷"&&chengle){
+                if(the[0]==="7"){
                     c[where].zengfu = 7;
-                }else if(the[0]=="10"){
+                }else if(the[0]==="10"){
                     c[where].zengfu = 10;
-                }else if(the[0]=="11"){
+                }else if(the[0]==="11"){
                     c[where].zengfu = 11;
-                }else if(the[0]=="12"){
+                }else if(the[0]==="12"){
                     c[where].zengfu = 12;
-                }else if(the[0]=="13"){
+                }else if(the[0]==="13"){
                     c[where].zengfu = 13;
                 }
             }
@@ -1704,67 +1704,67 @@ class Man{
                 c[where].qianghua++;
                 chengle = true;
             }
-        }else if(old==5){
+        }else if(old===5){
             if(this.r1(100,1)>50){
                 c[where].qianghua++;
                 chengle = true;
             }
-        }else if(old==6){
+        }else if(old===6){
             if(this.r1(100,1)>60){
                 c[where].qianghua++;
                 chengle = true;
             }
-        }else if(old==7){
+        }else if(old===7){
             if(this.r1(100,1)>65){
                 c[where].qianghua++;
                 chengle = true;
             }
-        }else if(old==8){
+        }else if(old===8){
             if(this.r1(100,1)>70){
                 c[where].qianghua++;
                 chengle = true;
             }
-        }else if(old==9){
+        }else if(old===9){
             if(this.r1(100,1)>70){
                 c[where].qianghua++;
                 chengle = true;
             }else{
                 c[where].qianghua -= 2;
             }
-        }else if(old==10){
+        }else if(old===10){
             if(this.r1(100,1)>75){
                 c[where].qianghua++;
                 chengle = true;
             }else{
                 c[where].qianghua -= 2;
             }
-        }else if(old==11){
+        }else if(old===11){
             if(this.r1(100,1)>80){
                 c[where].qianghua++;
                 chengle = true;
             }else{
                 c[where].qianghua -= 3;
             }
-        }else if(old==12){
+        }else if(old===12){
             if(this.r1(100,1)>85){
                 c[where].qianghua++;
                 chengle = true;
             }else{
                 var the = c.backpack.indexOf("强化保护卷");
-                if(the == -1){
+                if(the === -1){
                     c[where] = {};
                 }else{
                     c.backpack.splice(the,1);
                     c[where].qianghua = 0;
                 }
             }
-        }else if(old==13){
+        }else if(old===13){
             if(this.r1(100,1)>70){
                 c[where].qianghua++;
                 chengle = true;
             }else{
                 var the = c.backpack.indexOf("强化保护卷");
-                if(the == -1){
+                if(the === -1){
                     c[where] = {};
                 }else{
                     c.backpack.splice(the,1);
@@ -1777,7 +1777,7 @@ class Man{
                 chengle = true;
             }else{
                 var the = c.backpack.indexOf("强化保护卷");
-                if(the == -1){
+                if(the === -1){
                     c[where] = {};
                 }else{
                     c.backpack.splice(the,1);
@@ -1813,67 +1813,67 @@ class Man{
                 c[where].zengfu++;
                 chengle = true;
             }
-        }else if(old==5){
+        }else if(old===5){
             if(this.r1(100,1)>20){
                 c[where].zengfu++;
                 chengle = true;
             }
-        }else if(old==6){
+        }else if(old===6){
             if(this.r1(100,1)>30){
                 c[where].zengfu++;
                 chengle = true;
             }
-        }else if(old==7){
+        }else if(old===7){
             if(this.r1(100,1)>40){
                 c[where].zengfu++;
                 chengle = true;
             }
-        }else if(old==8){
+        }else if(old===8){
             if(this.r1(100,1)>50){
                 c[where].zengfu++;
                 chengle = true;
             }
-        }else if(old==9){
+        }else if(old===9){
             if(this.r1(100,1)>60){
                 c[where].zengfu++;
                 chengle = true;
             }else{
                 c[where].zengfu -= 2;
             }
-        }else if(old==10){
+        }else if(old===10){
             if(this.r1(100,1)>70){
                 c[where].zengfu++;
                 chengle = true;
             }else{
                 c[where].zengfu -= 2;
             }
-        }else if(old==11){
+        }else if(old===11){
             if(this.r1(100,1)>90){
                 c[where].zengfu++;
                 chengle = true;
             }else{
                 c[where].zengfu -= 3;
             }
-        }else if(old==12){
+        }else if(old===12){
             if(this.r1(100,1)>85){
                 c[where].zengfu++;
                 chengle = true;
             }else{
                 var the = c.backpack.indexOf("增幅保护卷");
-                if(the == -1){
+                if(the === -1){
                     c[where] = {};
                 }else{
                     c.backpack.splice(the,1);
                     c[where].zengfu = 0;
                 }
             }
-        }else if(old==13){
+        }else if(old===13){
             if(this.r1(100,1)>50){
                 c[where].zengfu++;
                 chengle = true;
             }else{
                 var the = c.backpack.indexOf("增幅保护卷");
-                if(the == -1){
+                if(the === -1){
                     c[where] = {};
                 }else{
                     c.backpack.splice(the,1);
@@ -1886,7 +1886,7 @@ class Man{
                 chengle = true;
             }else{
                 var the = c.backpack.indexOf("增幅保护卷");
-                if(the == -1){
+                if(the === -1){
                     c[where] = {};
                 }else{
                     c.backpack.splice(the,1);
