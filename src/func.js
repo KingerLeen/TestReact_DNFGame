@@ -581,7 +581,7 @@ class Man{
         var maxtime = (time-1)/2;
         time -= (c.power/maxPower)*maxtime;
         time -= (c.speed/maxSpeed)*maxtime;
-        time = time<minTime?minTime:time;
+        time = time<this.minTime?this.minTime:time;
         setTimeout(function(){
             var c = this.user.character[count];
             c.exp += this.r1(exp2-exp1+1,exp1);
