@@ -5,7 +5,7 @@ import Man from './func';
 var contrlMan = new Man();
 var t = 0;
 var zidong = false;
-
+var mainUrl = "http://127.0.0.1:2333";
 var tanxianCD = 10; //探险的CD，可自行修改，默认10秒
 
 function Z(props){
@@ -1125,7 +1125,7 @@ class All extends React.Component{
         });this.save();
     }
     save(){
-        var url = "http://127.0.0.1:2333?code=3&user="+this.state.user.user+"&passwd="+this.state.user.passwd;
+        var url = mainUrl + "?code=3&user="+this.state.user.user+"&passwd="+this.state.user.passwd;
         url += "&data="+JSON.stringify(contrlMan.getUser());
         
         console.log(url);
@@ -1141,7 +1141,7 @@ class All extends React.Component{
     login(user, passwd){
         var user = window.prompt("请输入用户名","");
         var passwd = window.prompt("请输入密码","");
-        var url = "http://127.0.0.1:2333?code=2&user="+user+"&passwd="+passwd;
+        var url = mainUrl + "?code=2&user="+user+"&passwd="+passwd;
         console.log(url);
         fetch(url,{method: "GET"})
         .then(res => res.text())
@@ -1180,7 +1180,7 @@ class All extends React.Component{
     register(user, passwd){
         var user = window.prompt("请输入用户名","");
         var passwd = window.prompt("请输入密码","");
-        var url = "http://127.0.0.1:2333?code=1&user="+user+"&passwd="+passwd;
+        var url = mainUrl + "?code=1&user="+user+"&passwd="+passwd;
         console.log(url);
         fetch(url,{method: "GET"})
         .then(res => res.text())
