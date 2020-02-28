@@ -1305,7 +1305,7 @@ class All extends React.Component{
                     <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="亡命杀镇" onClick = {this.lian13}/>
                     <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="鸟背" onClick = {this.lian14}/>
                     <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="史诗之路" onClick = {this.lian15}/>
-                    <input style={{color:this.state.iszi?"blue":"",backgroundColor:this.state.iszi?"red":"",border:this.state.iszi?"5px solid red":"5px solid #FFFF00",borderRadius:"5px",width:"45%"}} class="page-header-button" type="button" value={this.state.iszi?"自动练级:"+this.state.zi_name(this.state.zidongnum)+"(开)":"自动练级"+this.state.zi_name(this.state.zidongnum)+"(关)"} onClick = {this.zidonglian15}/>
+                    <input style={{color:this.state.iszi?"blue":"",backgroundColor:this.state.iszi?"red":"",border:this.state.iszi?"5px solid red":"5px solid #FFFF00",borderRadius:"5px",width:"45%"}} class="page-header-button" type="button" value={this.state.iszi?"自动练级:"+this.zi_name(this.state.zidongnum)+"(开)":"自动练级"+this.zi_name(this.state.zidongnum)+"(关)"} onClick = {this.zidonglian15}/>
                     
                     <input style={{border:"5px solid #FF0000",borderRadius:"5px",width:"15%"}} class="page-header-button" type="button" value="安图恩" onClick = {this.shenyuan1}/>
                     <input style={{border:"5px solid #FF0000",borderRadius:"5px",width:"15%"}} class="page-header-button" type="button" value="卢克" onClick = {this.shenyuan2}/>
