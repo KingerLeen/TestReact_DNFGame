@@ -111,6 +111,7 @@ class All extends React.Component{
         this.lian15 = this.lian15.bind(this);
         this.zidonglian15 = this.zidonglian15.bind(this);
         this.zi = this.zi.bind(this);
+        this.zi_name = this.zi_name.bind(this);
 
         this.shenyuan1 = this.shenyuan1.bind(this);
         this.shenyuan2 = this.shenyuan2.bind(this);
@@ -124,6 +125,11 @@ class All extends React.Component{
         this.paixu = this.paixu.bind(this);
         this.selldiji = this.selldiji.bind(this);
         this.sellW = this.sellW.bind(this);
+        this.sellB = this.sellB.bind(this);
+        this.sellQ = this.sellQ.bind(this);
+        this.sellZ = this.sellZ.bind(this);
+        this.sellT = this.sellT.bind(this);
+        this.best = this.best.bind(this);
     }
     paixu(){
         var user = contrlMan.getUser();
@@ -149,6 +155,101 @@ class All extends React.Component{
                     if(the[0]==="7"||the[1]==="黑铁"){
                         contrlMan.sell(this.state.count,n);continue;
                     }
+                }
+            }n++;
+        }
+        this.setState({
+            user:contrlMan.getUser()
+        });
+        this.save();
+    }
+    best(){
+        this.paixu();
+        this.zidongzhuangbei();
+        this.zidongzhuangbei();
+        this.zidongzhuangbei();
+        this.sellW();
+        this.sellB();
+        this.sellZ();
+        this.sellQ();
+        this.sellT();
+        this.paixu();
+    }
+    sellZ(){
+        var user = contrlMan.getUser();
+        user = user.character[this.state.count];
+        var num = user.backpack.length;
+        var n = 0;
+        for(var i=0; i<num; i++){
+            var the = user.backpack[n];
+            if(typeof(the)===typeof("")){
+                if(the[the.length-1]==="卷"&&the[the.length-2]==="幅"){
+                    the = the.split(" ");
+                    if(the[0]==="7"||the[0]==="10"||the[0]==="11"||the[1]==="黑铁"||the[1]==="黄金"){
+                        contrlMan.sell(this.state.count,n);continue;
+                    }
+                }
+            }n++;
+        }
+        this.setState({
+            user:contrlMan.getUser()
+        });
+        this.save();
+    }
+    sellT(){
+        var user = contrlMan.getUser();
+        user = user.character[this.state.count];
+        var num = user.backpack.length;
+        var n = 0;
+        for(var i=0; i<num; i++){
+            var the = user.backpack[n];
+            if(typeof(the)===typeof("")){
+                if(the[the.length-1]==="箱"&&(the[0]==="3"||the[0]==="5"||the[0]==="7")){
+                    contrlMan.sell(this.state.count,n);continue;
+                }
+            }n++;
+        }
+        this.setState({
+            user:contrlMan.getUser()
+        });
+        this.save();
+    }
+    sellQ(){
+        var user = contrlMan.getUser();
+        user = user.character[this.state.count];
+        var num = user.backpack.length;
+        var n = 0;
+        for(var i=0; i<num; i++){
+            var the = user.backpack[n];
+            if(typeof(the)===typeof("")){
+                if(the[the.length-1]==="卷"&&the[the.length-2]==="化"){
+                    the = the.split(" ");
+                    if(the[0]==="7"||the[0]==="10"||the[0]==="11"||the[1]==="黑铁"||the[1]==="黄金"){
+                        contrlMan.sell(this.state.count,n);continue;
+                    }
+                }
+            }n++;
+        }
+        this.setState({
+            user:contrlMan.getUser()
+        });
+        this.save();
+    }
+    sellB(){
+        var user = contrlMan.getUser();
+        user = user.character[this.state.count];
+        var num = user.backpack.length;
+        var n = 0;
+        var qh = 0;
+        var zf = 0;
+        for(var i=0; i<num; i++){
+            var the = user.backpack[n];
+            if(typeof(the)===typeof("")){
+                if(the[the.length-1]==="卷"&&the[the.length-2]==="护"&&the[0]==="强"){
+                    if(qh!==0){contrlMan.sell(this.state.count,n);continue;qh=1;}
+                }
+                if(the[the.length-1]==="卷"&&the[the.length-2]==="护"&&the[0]==="增"){
+                    if(zf!==0){contrlMan.sell(this.state.count,n);continue;zf=1;}
                 }
             }n++;
         }
@@ -677,6 +778,10 @@ class All extends React.Component{
             t = 0;this.save();
         }.bind(this), t*1000+100);
     }
+    zi_name(num){
+        var list = ["","平原","山洞","森林","森林深处","珠峰","龙人之塔","悲鸣洞穴","天界","格兰迪","钢铁之臂","全蚀市场","断头谷","亡命杀镇","鸟背","史诗之路"]
+        return list[num]
+    }
     zi(){
         if(!zidong){
             return 0;
@@ -1178,35 +1283,35 @@ class All extends React.Component{
                     <input style={{border:"5px solid #FF3399",borderRadius:"5px",width:"15%"}} class="page-header-button" type="button" value="转职" onClick = {this.zhuanzhi}/>
                     <input style={{border:"5px solid #FF00FF",borderRadius:"5px",width:"20%"}} class="page-header-button" type="button" value="探险" onClick = {this.tanxian}/>
 
-                    <input style={{border:"5px solid #00FFFF",borderRadius:"5px",width:"20%"}} class="page-header-button" type="button" value="钻石+1" onClick = {this.zuanshi}/>
-                    <input style={{border:"5px solid #00FFFF",borderRadius:"5px",width:"20%"}} class="page-header-button" type="button" value="钻石+10" onClick = {this.zuanshi2}/>
-                    <input style={{border:"5px solid #00FFFF",borderRadius:"5px",width:"25%"}} class="page-header-button" type="button" value="钻石+100" onClick = {this.zuanshi3}/>
-                    <input style={{border:"5px solid #00FFFF",borderRadius:"5px",width:"35%"}} class="page-header-button" type="button" value="钻石+1000" onClick = {this.zuanshi4}/>
+                    <input style={{border:"5px solid #00FFFF",borderRadius:"5px",width:"40%"}} class="page-header-button" type="button" value="金币换钻石50W:1" onClick = {this.zuanshi}/>
+                    <input style={{border:"5px solid #00FFFF",borderRadius:"5px",width:"15%"}} class="page-header-button" type="button" value="10" onClick = {this.zuanshi2}/>
+                    <input style={{border:"5px solid #00FFFF",borderRadius:"5px",width:"20%"}} class="page-header-button" type="button" value="100" onClick = {this.zuanshi3}/>
+                    <input style={{border:"5px solid #00FFFF",borderRadius:"5px",width:"25%"}} class="page-header-button" type="button" value="1000" onClick = {this.zuanshi4}/>
                     
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="练级1" onClick = {this.lian1}/>
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="练级2" onClick = {this.lian2}/>
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="练级3" onClick = {this.lian3}/>
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="练级4" onClick = {this.lian4}/>
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="练级5" onClick = {this.lian5}/>
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="练级6" onClick = {this.lian6}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="平原" onClick = {this.lian1}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="山洞" onClick = {this.lian2}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="森林" onClick = {this.lian3}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="森林深处" onClick = {this.lian4}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="珠峰" onClick = {this.lian5}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="龙人之塔" onClick = {this.lian6}/>
 
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="练级7" onClick = {this.lian7}/>
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="练级8" onClick = {this.lian8}/>
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="练级9" onClick = {this.lian9}/>
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="练级10" onClick = {this.lian10}/>
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="练级11" onClick = {this.lian11}/>
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="练级12" onClick = {this.lian12}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="悲鸣洞穴" onClick = {this.lian7}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="天界" onClick = {this.lian8}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"16%"}} class="page-header-button" type="button" value="格兰迪" onClick = {this.lian9}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="钢铁之臂" onClick = {this.lian10}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="全蚀市场" onClick = {this.lian11}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="断头谷" onClick = {this.lian12}/>
 
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="练级13" onClick = {this.lian13}/>
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="练级14" onClick = {this.lian14}/>
-                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="练级15" onClick = {this.lian15}/>
-                    <input style={{color:this.state.iszi?"blue":"",backgroundColor:this.state.iszi?"red":"",border:this.state.iszi?"5px solid red":"5px solid #FFFF00",borderRadius:"5px",width:"45%"}} class="page-header-button" type="button" value={this.state.iszi?"自动练级"+this.state.zidongnum+"(开)":"自动练级"+this.state.zidongnum+"(关)"} onClick = {this.zidonglian15}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="亡命杀镇" onClick = {this.lian13}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="鸟背" onClick = {this.lian14}/>
+                    <input style={{border:"5px solid #FFFF00",borderRadius:"5px",width:"17%"}} class="page-header-button" type="button" value="史诗之路" onClick = {this.lian15}/>
+                    <input style={{color:this.state.iszi?"blue":"",backgroundColor:this.state.iszi?"red":"",border:this.state.iszi?"5px solid red":"5px solid #FFFF00",borderRadius:"5px",width:"45%"}} class="page-header-button" type="button" value={this.state.iszi?"自动练级:"+this.state.zi_name(this.state.zidongnum)+"(开)":"自动练级"+this.state.zi_name(this.state.zidongnum)+"(关)"} onClick = {this.zidonglian15}/>
                     
-                    <input style={{border:"5px solid #FF0000",borderRadius:"5px",width:"20%"}} class="page-header-button" type="button" value="深渊1" onClick = {this.shenyuan1}/>
-                    <input style={{border:"5px solid #FF0000",borderRadius:"5px",width:"20%"}} class="page-header-button" type="button" value="深渊2" onClick = {this.shenyuan2}/>
-                    <input style={{border:"5px solid #FF0000",borderRadius:"5px",width:"20%"}} class="page-header-button" type="button" value="深渊3" onClick = {this.shenyuan3}/>
-                    <input style={{border:"5px solid #FF0000",borderRadius:"5px",width:"20%"}} class="page-header-button" type="button" value="深渊4" onClick = {this.shenyuan4}/>
-                    <input style={{border:"5px solid #FF0000",borderRadius:"5px",width:"20%"}} class="page-header-button" type="button" value="深渊5" onClick = {this.shenyuan5}/>
+                    <input style={{border:"5px solid #FF0000",borderRadius:"5px",width:"15%"}} class="page-header-button" type="button" value="安图恩" onClick = {this.shenyuan1}/>
+                    <input style={{border:"5px solid #FF0000",borderRadius:"5px",width:"15%"}} class="page-header-button" type="button" value="卢克" onClick = {this.shenyuan2}/>
+                    <input style={{border:"5px solid #FF0000",borderRadius:"5px",width:"25%"}} class="page-header-button" type="button" value="超时空漩涡" onClick = {this.shenyuan3}/>
+                    <input style={{border:"5px solid #FF0000",borderRadius:"5px",width:"20%"}} class="page-header-button" type="button" value="深渊-普雷" onClick = {this.shenyuan4}/>
+                    <input style={{border:"5px solid #FF0000",borderRadius:"5px",width:"25%"}} class="page-header-button" type="button" value="深渊-希洛克" onClick = {this.shenyuan5}/>
                     </div>
                 </React.Fragment>):<React.Fragment />}
             {this.state.createMan&&this.state.count!==""?(
@@ -1215,9 +1320,14 @@ class All extends React.Component{
                 <div class="widget-head am-cf">
                     <div class="widget-title am-fl">背包</div>
                     <div class="widget-function am-fr">
+                        <a onClick={this.best} href="javascript:;" class="am-icon-cog">一键最优操作</a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a onClick={this.paixu} href="javascript:;" class="am-icon-cog">按照售价高到低排序</a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a onClick={this.zidongzhuangbei} href="javascript:;" class="am-icon-cog">自动装备</a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a onClick={this.selldiji} href="javascript:;" class="am-icon-cog">卖出低级物品(黑铁,+7,30-100调整箱)</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a onClick={this.sellB} href="javascript:;" class="am-icon-cog">只卖出保护卷</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a onClick={this.sellQ} href="javascript:;" class="am-icon-cog">只卖出强化卷</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a onClick={this.sellZ} href="javascript:;" class="am-icon-cog">只卖出增幅卷</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a onClick={this.sellT} href="javascript:;" class="am-icon-cog">只卖出调整箱</a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a onClick={this.sellW} href="javascript:;" class="am-icon-cog">只卖出装备</a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a onClick={this.sellAll} href="javascript:;" class="am-icon-cog">卖出全部</a>
                     </div>
