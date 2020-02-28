@@ -246,10 +246,10 @@ class All extends React.Component{
             var the = user.backpack[n];
             if(typeof(the)===typeof("")){
                 if(the[the.length-1]==="卷"&&the[the.length-2]==="护"&&the[0]==="强"){
-                    if(qh!==0){contrlMan.sell(this.state.count,n);qh=1;continue;}
+                    if(qh!==0){contrlMan.sell(this.state.count,n);continue;}esle{qh=1;}
                 }
                 if(the[the.length-1]==="卷"&&the[the.length-2]==="护"&&the[0]==="增"){
-                    if(zf!==0){contrlMan.sell(this.state.count,n);zf=1;continue;}
+                    if(zf!==0){contrlMan.sell(this.state.count,n);zf=1;continue;}esle{zf=1;}
                 }
             }n++;
         }
