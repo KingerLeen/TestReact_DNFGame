@@ -6,7 +6,7 @@ var contrlMan = new Man();
 var t = 0;
 var zidong = false;
 var mainUrl = "http://127.0.0.1:2333";
-var tanxianCD = 10; //探险的CD，可自行修改，默认10秒
+var tanxianCD = 5; //探险的CD，可自行修改，默认10秒
 
 function Z(props){
     return(
