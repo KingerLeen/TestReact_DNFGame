@@ -152,10 +152,10 @@ var server = http.createServer(function (req, res) {
             res.end();
         }
         console.log(data);
-        console.log('running 127.0.0.1:2333');
+        console.log('running 2333');
         console.log('********************************************');
     }
-}).listen(2333, "127.0.0.1");
+}).listen(2333);
 
-console.log('running 127.0.0.1:2333');
+console.log('running 2333');
 console.log('********************************************');
