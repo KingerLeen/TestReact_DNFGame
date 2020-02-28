@@ -32,5 +32,6 @@
 1 json数据库  （ @ _ @ ）
     ./server/info.json
 2 程序控制，难度调整
-    ./src/func,js
+    ./src/func.js
+3 必须修改./src/index.js 的url为服务器地址
 ```
