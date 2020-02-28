@@ -7,6 +7,8 @@ class Man{
         character: []
     }
     
+    minTime = 1 //最短时间修改
+
     profession = [
         {
             code: 0,
@@ -579,7 +581,7 @@ class Man{
         var maxtime = (time-1)/2;
         time -= (c.power/maxPower)*maxtime;
         time -= (c.speed/maxSpeed)*maxtime;
-        time = time<1?1:time;
+        time = time<minTime?minTime:time;
         setTimeout(function(){
             var c = this.user.character[count];
             c.exp += this.r1(exp2-exp1+1,exp1);
