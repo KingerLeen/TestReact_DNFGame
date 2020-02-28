@@ -356,7 +356,7 @@ class Man{
             if(c[s].name===undefined){
                 return 0;
             }
-            return (c[s].quality/100)*c[s].power*((c[s].zengfu>=12?2:1.3)**c[s].zengfu)*((c[s].qianghua>=12?1.5:1.1)**c[s].qianghua);
+            return (c[s].quality/100)*c[s].power*(((c[s].zengfu>=12?1.5:1.3)**c[s].zengfu)*(c[s].zengfu>=15?1.2:1)*(c[s].zengfu>=17?1.3:1)*(c[s].zengfu>=19?1.4:1)*(c[s].zengfu>=21?1.5:1))*(((c[s].qianghua>=12?1.3:1.1)**c[s].qianghua)*(c[s].qianghua>=15?1.2:1)*(c[s].qianghua>=17?1.3:1)*(c[s].qianghua>=19?1.4:1)*(c[s].qianghua>=21?1.5:1));
         }
         function find(s){
             return c[s].name;
@@ -371,15 +371,15 @@ class Man{
             find("breastplate")===find("shoulder")&&
             find("breastplate")===find("leg")&&
             find("shoes")===find("leg")){
-            p *= 1.5;
+            p *= 1.2;
         }
         if(find("necklace")!==undefined&&find("necklace")===find("bracelet")&&
             find("bracelet")===find("ring")){
-            p *= 2;
+            p *= 1.1;
         }
         if(find("stone")!==undefined&&find("stone")===find("auxiliary")&&
             find("auxiliary")===find("earring")){
-            p *= 3;
+            p *= 1.1;
         }
         c.power = p;
         this.user.character[count] = c;
@@ -396,7 +396,7 @@ class Man{
             if(c[s].name===undefined){
                 return 0;
             }
-            return (c[s].quality/100)*c[s].speed*((c[s].zengfu>=12?2:1.3)**c[s].zengfu)*((c[s].qianghua>=12?1.5:1.1)**c[s].qianghua);
+            return (c[s].quality/100)*c[s].speed*(((c[s].zengfu>=12?1.5:1.3)**c[s].zengfu)*(c[s].zengfu>=15?1.2:1)*(c[s].zengfu>=17?1.3:1)*(c[s].zengfu>=19?1.4:1)*(c[s].zengfu>=21?1.5:1))*(((c[s].qianghua>=12?1.3:1.1)**c[s].qianghua)*(c[s].qianghua>=15?1.2:1)*(c[s].qianghua>=17?1.3:1)*(c[s].qianghua>=19?1.4:1)*(c[s].qianghua>=21?1.5:1));
         }
         function find(s){
             return c[s].name;
@@ -411,17 +411,17 @@ class Man{
             find("breastplate")===find("shoulder")&&
             find("breastplate")===find("leg")&&
             find("shoes")===find("leg")){
-            p *= 1.5;
+            p *= 1.2;
         }
         if(find("necklace")!==undefined&&find("necklace")===find("bracelet")&&
             find("bracelet")===find("ring")){
-            p *= 2;
+            p *= 1.1;
         }
         if(find("stone")!==undefined&&find("stone")===find("auxiliary")&&
             find("auxiliary")===find("earring")){
-            p *= 3;
+            p *= 1.1;
         }
-        c.speed = p;
+        c.speed = p<0?0:p;
         this.user.character[count] = c;
         return p;
     }
