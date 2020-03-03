@@ -1067,6 +1067,35 @@ class Man{
             }
             c.backpack.push(str);
         }
+        
+        function juanzi2(dj13,dj12,dj11,pj1,pj2,lx){
+            var num = Math.floor(Math.random()*100)+1;
+            var str = "";
+            if(num>dj13){
+                str = "13";
+            }else if(num>dj12){
+                str = "12";
+            }else if(num>dj11){
+                str = "11";
+            }else{
+                str = "10";
+            }
+            num = Math.floor(Math.random()*100)+1;
+            if(num>pj1){
+                str += " 钻石 ";
+            }else if(num>pj2){
+                str += " 翡翠 ";
+            }else{
+                str += " 黄金 ";
+            }
+            num = Math.floor(Math.random()*100)+1;
+            if(num>lx){
+                str += "增幅卷";
+            }else{
+                str += "强化卷";
+            }
+            c.backpack.push(str);
+        }
 
         function tiaozheng(){
             var num = Math.floor(Math.random()*100)+1;
@@ -1082,8 +1111,115 @@ class Man{
             }
             c.backpack.push(str);
         }
-
+        
+        if(p>20088888888){//**********************************
+            if(this.r1(100,1)>90){
+                this.user.gold += this.r1(88888888,1);
+            }
+            if(this.r1(100,1)>95){
+                this.user.diamond += this.r1(288,1);
+            }
+            if(this.r1(100,1)>50){
+                c.backpack.push("90-100装备品级调整箱");
+            }
+            juanzi2(90,80,70,90,80,80);
+            //13  12  11  10    钻石 翡翠 黄金    增幅/强化
+        }
         if(p>88888888888){//**********************************
+            if(this.r1(100,1)>70){
+                this.user.gold += this.r1(88888888,1);
+            }
+            if(this.r1(100,1)>80){
+                this.user.diamond += this.r1(288,1);
+            }
+            if(this.r1(100,1)>50){
+                c.backpack.push("90-100装备品级调整箱");
+            }
+            juanzi2(90,80,70,90,80,80);
+            //13  12  11  10    钻石 翡翠 黄金    增幅/强化
+        }
+        if(p>388888888888){//**********************************
+            if(this.r1(100,1)>70){
+                this.user.gold += this.r1(88888888,1);
+            }
+            if(this.r1(100,1)>80){
+                this.user.diamond += this.r1(288,1);
+            }
+            juanzi2(90,80,10,90,10,70);
+            //13  12  11  10    钻石 翡翠 黄金    增幅/强化
+        }
+        if(p>888888888888){//**********************************
+            if(this.r1(100,1)>60){
+                this.user.gold += this.r1(888888888,1);
+            }
+            if(this.r1(100,1)>70){
+                this.user.diamond += this.r1(588,1);
+            }
+            juanzi2(80,70,5,80,5,60);
+            //13  12  11  10    钻石 翡翠 黄金    增幅/强化
+        }
+        if(p>3888888888888){//**********************************
+            if(this.r1(100,1)>50){
+                this.user.gold += this.r1(888888888,1);
+            }
+            if(this.r1(100,1)>60){
+                this.user.diamond += this.r1(888,1);
+            }
+            juanzi2(70,50,5,70,5,60);
+            //13  12  11  10    钻石 翡翠 黄金    增幅/强化
+        }
+        if(p>8888888888888){//**********************************
+            if(this.r1(100,1)>50){
+                this.user.gold += this.r1(1888888888,1);
+            }
+            if(this.r1(100,1)>60){
+                this.user.diamond += this.r1(1888,1);
+            }
+            juanzi2(60,30,5,70,5,50);
+            //13  12  11  10    钻石 翡翠 黄金    增幅/强化
+        }
+        if(p>88888888888888){//**********************************
+            if(this.r1(100,1)>50){
+                this.user.gold += this.r1(8888888888,1);
+            }
+            if(this.r1(100,1)>60){
+                this.user.diamond += this.r1(8888,1);
+            }
+            juanzi2(60,30,5,50,5,50);
+            //13  12  11  10    钻石 翡翠 黄金    增幅/强化
+        }
+        if(p>88888888888888){//**********************************
+            if(this.r1(100,1)>50){
+                this.user.gold += this.r1(8888888888,1);
+            }
+            if(this.r1(100,1)>60){
+                this.user.diamond += this.r1(8888,1);
+            }
+            juanzi2(50,10,5,40,5,50);
+            //13  12  11  10    钻石 翡翠 黄金    增幅/强化
+        }
+        if(p>88888888888888){//**********************************
+            if(this.r1(100,1)>50){
+                this.user.gold += this.r1(8888888888,1);
+            }
+            if(this.r1(100,1)>60){
+                this.user.diamond += this.r1(8888,1);
+            }
+            juanzi2(50,10,5,30,5,40);
+            //13  12  11  10    钻石 翡翠 黄金    增幅/强化
+        }
+        if(p>888888888888888){//**********************************
+            if(this.r1(100,1)>50){
+                this.user.gold += this.r1(88888888888,1);
+            }
+            if(this.r1(100,1)>60){
+                this.user.diamond += this.r1(88888,1);
+            }
+            juanzi2(30,5,1,10,1,30);
+            //13  12  11  10    钻石 翡翠 黄金    增幅/强化
+        }
+                
+        if(p>10088888888){//**********************************
             if(this.r1(100,1)>90){
                 this.user.gold += this.r1(88888888,1);
             }
@@ -1096,43 +1232,15 @@ class Man{
             if(this.r1(100,1)>80){
                 c.exp += 88888888;
             }
-            if(this.r1(100,1)>80){
+            if(this.r1(100,1)>30){
                 c.backpack.push("强化保护卷");
             }
-            if(this.r1(100,1)>80){
-                c.backpack.push("强化保护卷");
-            }
-            if(this.r1(100,1)>80){
-                c.backpack.push("强化保护卷");
-            }
-            if(this.r1(100,1)>90){
+            if(this.r1(100,1)>50){
                 c.backpack.push("增幅保护卷");
             }
-            if(this.r1(100,1)>90){
-                c.backpack.push("增幅保护卷");
-            }
-            if(this.r1(100,1)>90){
-                c.backpack.push("增幅保护卷");
-            }
-            if(this.r1(100,1)>20){
-                juanzi();
-            }
-            if(this.r1(100,1)>20){
-                juanzi();
-            }
-            if(this.r1(100,1)>20){
-                juanzi();
-            }
-            if(this.r1(100,1)>10){
-                tiaozheng();
-            }
-            if(this.r1(100,1)>10){
-                tiaozheng();
-            }
-            if(this.r1(100,1)>10){
-                tiaozheng();
-            }
-        }else if(p>8888888888){//**********************************
+            juanzi();juanzi();juanzi();
+            tiaozheng();tiaozheng();tiaozheng();
+        }else if(p>5888888888){//**********************************
             if(this.r1(100,1)>60){
                 this.user.gold += this.r1(8888888,1);
             }
