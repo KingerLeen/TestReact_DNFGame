@@ -356,7 +356,26 @@ class Man{
             if(c[s].name===undefined){
                 return 0;
             }
-            return (c[s].quality/100)*c[s].power*(((c[s].zengfu>=12?1.5:1.3)**c[s].zengfu)*(c[s].zengfu>=15?1.2:1)*(c[s].zengfu>=17?1.3:1)*(c[s].zengfu>=19?1.4:1)*(c[s].zengfu>=21?1.5:1))*(((c[s].qianghua>=12?1.3:1.1)**c[s].qianghua)*(c[s].qianghua>=15?1.2:1)*(c[s].qianghua>=17?1.3:1)*(c[s].qianghua>=19?1.4:1)*(c[s].qianghua>=21?1.5:1));
+            var aaa = (c[s].quality/100)*c[s].power;
+            aaa = aaa*((c[s].zengfu>=12?1.5:1.3)**c[s].zengfu);
+            aaa = aaa*(c[s].zengfu>=13?1.3:1);
+            aaa = aaa*(c[s].zengfu>=14?1.8:1);
+            aaa = aaa*(c[s].zengfu>=15?2.5:1);
+            aaa = aaa*(c[s].zengfu>=16?3.4:1);
+            aaa = aaa*(c[s].zengfu>=17?4.4:1);
+            aaa = aaa*(c[s].zengfu>=18?5.5:1);
+            aaa = aaa*(c[s].zengfu>=19?7:1);
+            aaa = aaa*(c[s].zengfu>=20?10:1);
+            aaa = aaa*((c[s].qianghua>=12?1.3:1.1)**c[s].qianghua);
+            aaa = aaa*(c[s].qianghua>=13?1.1:1);
+            aaa = aaa*(c[s].qianghua>=14?1.3:1);
+            aaa = aaa*(c[s].qianghua>=15?1.8:1);
+            aaa = aaa*(c[s].qianghua>=16?2.5:1);
+            aaa = aaa*(c[s].qianghua>=17?3.4:1);
+            aaa = aaa*(c[s].qianghua>=18?4.4:1);
+            aaa = aaa*(c[s].qianghua>=19?5.5:1);
+            aaa = aaa*(c[s].qianghua>=20?7:1);
+            return aaa;
         }
         function find(s){
             return c[s].name;
@@ -396,7 +415,26 @@ class Man{
             if(c[s].name===undefined){
                 return 0;
             }
-            return (c[s].quality/100)*c[s].speed*(((c[s].zengfu>=12?1.5:1.3)**c[s].zengfu)*(c[s].zengfu>=15?1.2:1)*(c[s].zengfu>=17?1.3:1)*(c[s].zengfu>=19?1.4:1)*(c[s].zengfu>=21?1.5:1))*(((c[s].qianghua>=12?1.3:1.1)**c[s].qianghua)*(c[s].qianghua>=15?1.2:1)*(c[s].qianghua>=17?1.3:1)*(c[s].qianghua>=19?1.4:1)*(c[s].qianghua>=21?1.5:1));
+            var aaa = (c[s].quality/100)*c[s].speed;
+            aaa = aaa*((c[s].zengfu>=12?1.5:1.3)**c[s].zengfu);
+            aaa = aaa*(c[s].zengfu>=13?1.3:1);
+            aaa = aaa*(c[s].zengfu>=14?1.8:1);
+            aaa = aaa*(c[s].zengfu>=15?2.5:1);
+            aaa = aaa*(c[s].zengfu>=16?3.4:1);
+            aaa = aaa*(c[s].zengfu>=17?4.4:1);
+            aaa = aaa*(c[s].zengfu>=18?5.5:1);
+            aaa = aaa*(c[s].zengfu>=19?7:1);
+            aaa = aaa*(c[s].zengfu>=20?10:1);
+            aaa = aaa*((c[s].qianghua>=12?1.3:1.1)**c[s].qianghua);
+            aaa = aaa*(c[s].qianghua>=13?1.1:1);
+            aaa = aaa*(c[s].qianghua>=14?1.3:1);
+            aaa = aaa*(c[s].qianghua>=15?1.8:1);
+            aaa = aaa*(c[s].qianghua>=16?2.5:1);
+            aaa = aaa*(c[s].qianghua>=17?3.4:1);
+            aaa = aaa*(c[s].qianghua>=18?4.4:1);
+            aaa = aaa*(c[s].qianghua>=19?5.5:1);
+            aaa = aaa*(c[s].qianghua>=20?7:1);
+            return aaa;
         }
         function find(s){
             return c[s].name;
