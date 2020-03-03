@@ -201,11 +201,17 @@ class All extends React.Component{
         user = user.character[this.state.count];
         var num = user.backpack.length;
         var n = 0;
+        var index = 0;
         for(var i=0; i<num; i++){
             var the = user.backpack[n];
             if(typeof(the)===typeof("")){
                 if(the[the.length-1]==="箱"&&(the[0]==="3"||the[0]==="5"||the[0]==="7")){
                     contrlMan.sell(this.state.count,n);continue;
+                }else if(the[the.length-1]==="箱"&&(the[0]==="9")){
+                    index++;
+                    if (index>5){
+                        contrlMan.sell(this.state.count,n);continue;
+                    }
                 }
             }n++;
         }
