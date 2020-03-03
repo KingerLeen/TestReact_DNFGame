@@ -183,12 +183,22 @@ class All extends React.Component{
         for(var i=0; i<num; i++){
             var the = user.backpack[n];
             if(typeof(the)===typeof("")){
-                if(the[the.length-1]==="卷"&&the[the.length-2]==="幅"){
-                    the = the.split(" ");
-                    if(the[0]==="7"||the[0]==="10"||the[0]==="11"||the[1]==="黑铁"||the[1]==="黄金"){
-                        contrlMan.sell(this.state.count,n);continue;
+                if(user.power < 88888888888){
+                    if(the[the.length-1]==="卷"&&the[the.length-2]==="幅"){
+                        the = the.split(" ");
+                        if(the[0]==="7"||the[0]==="10"||the[0]==="11"||the[1]==="黑铁"||the[1]==="黄金"){
+                            contrlMan.sell(this.state.count,n);continue;
+                        }
+                    }
+                }else{
+                    if(the[the.length-1]==="卷"&&the[the.length-2]==="幅"){
+                        the = the.split(" ");
+                        if(the[0]==="7"||the[0]==="10"||the[0]==="11"||the[0]==="12"||the[1]==="黑铁"){
+                            contrlMan.sell(this.state.count,n);continue;
+                        }
                     }
                 }
+
             }n++;
         }
         this.setState({
@@ -209,7 +219,7 @@ class All extends React.Component{
                     contrlMan.sell(this.state.count,n);continue;
                 }else if(the[the.length-1]==="箱"&&(the[0]==="9")){
                     index++;
-                    if (index>5){
+                    if (index>2){
                         contrlMan.sell(this.state.count,n);continue;
                     }
                 }
@@ -228,10 +238,19 @@ class All extends React.Component{
         for(var i=0; i<num; i++){
             var the = user.backpack[n];
             if(typeof(the)===typeof("")){
-                if(the[the.length-1]==="卷"&&the[the.length-2]==="化"){
-                    the = the.split(" ");
-                    if(the[0]==="7"||the[0]==="10"||the[0]==="11"||the[1]==="黑铁"||the[1]==="黄金"){
-                        contrlMan.sell(this.state.count,n);continue;
+                if(user.power < 88888888888){
+                    if(the[the.length-1]==="卷"&&the[the.length-2]==="化"){
+                        the = the.split(" ");
+                        if(the[0]==="7"||the[0]==="10"||the[0]==="11"||the[1]==="黑铁"||the[1]==="黄金"){
+                            contrlMan.sell(this.state.count,n);continue;
+                        }
+                    }
+                }else{
+                    if(the[the.length-1]==="卷"&&the[the.length-2]==="化"){
+                        the = the.split(" ");
+                        if(the[0]==="7"||the[0]==="10"||the[0]==="11"||the[0]==="12"||the[1]==="黑铁"||the[1]==="黄金"){
+                            contrlMan.sell(this.state.count,n);continue;
+                        }
                     }
                 }
             }n++;
